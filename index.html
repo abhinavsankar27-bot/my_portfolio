@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhinav Sankar | MCA Student Portfolio</title>
+    <!-- Load Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Set the Inter font as default */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Dark background for elegance */
+            background-color: #080c14;
+            /* Slightly darker base */
+            color: #E2E8F0;
+            /* Slate 200 */
+        }
+
+        /* Custom gradient for accent */
+        .accent-gradient {
+            background: linear-gradient(90deg, #3B82F6 0%, #10B981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+
+        /* Card styling for elegance */
+        .portfolio-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: #1a2330;
+            /* Dark slate for card background */
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
+            /* Enhanced glow on hover */
+        }
+
+        /* Skill Bar Animation */
+        .skill-bar-fill {
+            transition: width 1.5s ease-out;
+        }
+
+        /* Custom ring glow for the hero profile icon */
+        .profile-ring {
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.3);
+            animation: pulse-ring 2s infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 0 8px rgba(59, 130, 246, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.3);
+            }
+        }
+
+        /* Scrollbar styling for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #3B82F6;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #080c14;
+        }
+    </style>
+    <!-- Icon set for professional use (lucide icons) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body onload="lucide.createIcons()">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-[#080c14]/95 backdrop-blur-sm shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo/Name -->
+                <a href="#" class="text-2xl font-extrabold tracking-tight">
+                    <span class="accent-gradient">Abhinav Sankar</span>
+                </a>
+
+                <!-- Desktop Nav - UPDATED -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-slate-300 hover:text-blue-400 transition duration-150">About</a>
+                    <a href="#education"
+                        class="text-slate-300 hover:text-blue-400 transition duration-150">Education</a>
+                    <a href="#skills" class="text-slate-300 hover:text-blue-400 transition duration-150">Skills</a>
+                    <a href="#projects" class="text-slate-300 hover:text-blue-400 transition duration-150">Projects</a>
+                    <a href="#contact" class="text-slate-300 hover:text-blue-400 transition duration-150">Contact</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn"
+                    class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <i data-lucide="menu" class="w-6 h-6 text-blue-400"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) - UPDATED -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-800/90 py-2">
+            <a href="#about" class="block px-4 py-2 text-base text-slate-100 hover:bg-slate-700">About</a>
+            <a href="#education" class="block px-4 py-2 text-base text-slate-100 hover:bg-slate-700">Education</a>
+            <a href="#skills" class="block px-4 py-2 text-base text-slate-100 hover:bg-slate-700">Skills</a>
+            <a href="#projects" class="block px-4 py-2 text-base text-slate-100 hover:bg-slate-700">Projects</a>
+            <a href="#contact" class="block px-4 py-2 text-base text-slate-100 hover:bg-slate-700">Contact</a>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- 1. Hero Section -->
+        <section id="hero" class="py-24 md:py-40 text-center">
+            <div class="flex flex-col items-center">
+                <div
+                    class="w-32 h-32 mb-6 rounded-full bg-slate-800 flex items-center justify-center border-4 border-blue-500/50 profile-ring overflow-hidden">
+                    <!-- Placeholder Image - If user provides an actual image URL, it will be used -->
+                    <img src="profile.jpeg" alt="Profile Image Placeholder" class="w-full h-full object-cover"
+                        onerror="this.onerror=null;this.src='https://placehold.co/128x128/1a2330/ffffff?text=AS';">
+                </div>
+
+                <h1 class="text-5xl sm:text-7xl font-extrabold tracking-tighter mb-4">
+                    Hi, I'm <span class="accent-gradient">Abhinav Sankar</span>
+                </h1>
+                <p class="text-xl sm:text-2xl font-light text-slate-400 mb-8">
+                    MCA Student at LEAD College | Future Game Technologist
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#projects"
+                        class="inline-block px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-500 transition duration-300 transform hover:scale-[1.02]">
+                        View Projects
+                    </a>
+                    <a href="#contact"
+                        class="inline-block px-8 py-3 border border-blue-600 text-blue-400 font-semibold rounded-lg hover:bg-blue-600/10 transition duration-300 transform hover:scale-[1.02]">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. About Section -->
+        <section id="about" class="py-20 md:py-24 border-t border-slate-800">
+            <h2 class="text-4xl font-bold mb-12 text-center">About Me</h2>
+            <div class="grid md:grid-cols-2 gap-10 items-start">
+                <div>
+                    <p class="text-lg leading-relaxed text-slate-300 mb-6 text-justify">
+                        I am Abhinav Sankar, a dedicated and enthusiastic student currently pursuing my Master of
+                        Computer Applications (MCA)
+                        at <span class="text-blue-500">LEAD College, Palakkad</span>. My academic journey is driven by a
+                        passion for developing robust, scalable, and user-friendly
+                        web and game applications.
+                    </p>
+                    <p class="text-lg leading-relaxed text-slate-300 mb-6 text-justify">
+                        As a Python Game Technologist, I focus on high-performance game and graphics development,
+                        supported by a strong foundation
+                        in Data Structures and Algorithms (DSA). I enjoy tackling complex challenges such as collision
+                        detection, physics simulation,
+                        and real-time rendering pipelines.
+                    </p>
+                    <p class="text-lg leading-relaxed text-slate-300  text-justify">
+                        I am committed to using modern technologies, optimized engine architectures, and Python-based
+                        frameworks to create immersive,
+                        high-fidelity interactive experiences..
+                    </p>
+                </div>
+                <div class="portfolio-card p-6 rounded-xl shadow-xl space-y-4">
+                    <h3 class="text-2xl font-semibold text-blue-400">Core Strengths</h3>
+                    <ul class="space-y-3 text-slate-300 list-none pl-0">
+                        <li class="flex items-start"><i data-lucide="zap"
+                                class="w-5 h-5 text-green-400 mr-3 mt-1 flex-shrink-0"></i> **Optimized Performance:**
+                            Focus on writing clean, efficient code for fast loading times.</li>
+                        <li class="flex items-start"><i data-lucide="monitor-check"
+                                class="w-5 h-5 text-green-400 mr-3 mt-1 flex-shrink-0"></i> **Responsive Design:**
+                            Dedicated to mobile-first development using tools like Tailwind CSS.</li>
+                        <li class="flex items-start"><i data-lucide="layers-3"
+                                class="w-5 h-5 text-green-400 mr-3 mt-1 flex-shrink-0"></i> **Problem Solving:** Strong
+                            analytical skills honed through rigorous DSA practice.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Education Section (New) -->
+        <section id="education" class="py-20 md:py-24 border-t border-slate-800">
+            <h2 class="text-4xl font-bold mb-12 text-center">My Academic Journey</h2>
+
+            <div class="space-y-10 max-w-4xl mx-auto">
+                <!-- Education Entry 1: MCA -->
+                <div class="portfolio-card p-6 rounded-xl border-l-4 border-blue-500/80 hover:border-blue-400">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2">
+                        <h3 class="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-0">Master of Computer
+                            Applications (MCA)</h3>
+                        <span
+                            class="text-sm font-medium text-blue-400 bg-blue-600/20 px-3 py-1 rounded-full flex-shrink-0">2025
+                            - 2027 </span>
+                    </div>
+                    <p class="text-lg font-semibold text-slate-300 mb-1">LEAD College, Palakkad</p>
+                    <p class="text-md text-slate-400 mb-4">Focus areas include Data Structures , Java programming, Cloud
+                        Computing, Prompt Engineering principles and Python.</p>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="text-xs text-yellow-400 bg-yellow-600/20 px-3 py-1 rounded-full">Ai</span>
+                        <span class="text-xs text-purple-400 bg-purple-600/20 px-3 py-1 rounded-full">Cloud
+                            Computing</span>
+                        <span class="text-xs text-green-400 bg-green-600/20 px-3 py-1 rounded-full">Python</span>
+                    </div>
+                </div>
+
+                <!-- Education Entry 2: Bachelor's Degree -->
+                <div class="portfolio-card p-6 rounded-xl border-l-4 border-green-500/80 hover:border-green-400">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2">
+                        <h3 class="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-0">Bachelor of Computer
+                            Applications (BCA)</h3>
+                        <span
+                            class="text-sm font-medium text-green-400 bg-green-600/20 px-3 py-1 rounded-full flex-shrink-0">2022
+                            - 2025</span>
+                    </div>
+                    <p class="text-lg font-semibold text-slate-300 mb-1">Tharananellur Arts & Science College (TASC)</p>
+                    <p class="text-md text-slate-400 mb-4">Gained fundamental knowledge in programming languages like
+                        C++ and Java, database management (MySQL), and operating systems.</p>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="text-xs text-cyan-400 bg-cyan-600/20 px-3 py-1 rounded-full">C++</span>
+                        <span class="text-xs text-indigo-400 bg-indigo-600/20 px-3 py-1 rounded-full">Database
+                            Management</span>
+                        <span class="text-xs text-orange-400 bg-orange-600/20 px-3 py-1 rounded-full">Java
+                            Programming</span>
+                    </div>
+                </div>
+
+                <!-- Education Entry 2: Bachelor's Degree -->
+                <div class="portfolio-card p-6 rounded-xl border-l-4 border-green-500/80 hover:border-green-400">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2">
+                        <h3 class="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-0">Higher Secondary</h3>
+                        <span
+                            class="text-sm font-medium text-red-400 bg-red-600/20 px-3 py-1 rounded-full flex-shrink-0">2020
+                            - 2022</span>
+                    </div>
+                    <p class="text-lg font-semibold text-slate-300 mb-1">Thanniam Higher Secondary School, Thrissur</p>
+                    <p class="text-md text-slate-400 mb-4">Gained fundamental knowledge in programming languages and
+                        Accountancy.</p>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="text-xs text-red-400 bg-red-600/20 px-3 py-1 rounded-full">C++</span>
+                        <span class="text-xs text-yellow-400 bg-yellow-600/20 px-3 py-1 rounded-full">Accountancy</span>
+                        <span class="text-xs text-orange-400 bg-orange-600/20 px-3 py-1 rounded-full">Computer
+                            Applications</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 4. Skills Section (Enhanced with Proficiency Bars) -->
+        <section id="skills" class="py-20 md:py-24 border-t border-slate-800">
+            <h2 class="text-4xl font-bold mb-12 text-center">Technical Proficiency</h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Skill 1: Python -->
+                <div class="portfolio-card p-6 rounded-xl">
+                    <div class="flex items-center mb-3">
+                        <i data-lucide="code" class="w-6 h-6 text-blue-400 mr-3"></i>
+                        <span class="text-xl font-semibold">Python</span>
+                    </div>
+                    <div class="flex justify-between mb-1">
+                        <span class="text-sm font-medium text-slate-400">Proficiency</span>
+                        <span class="text-sm font-medium text-blue-400" id="js-percent">90%</span>
+                    </div>
+                    <div class="w-full bg-slate-700 rounded-full h-2.5">
+                        <div class="skill-bar-fill h-2.5 rounded-full bg-blue-500" style="width: 0%;" data-percent="90">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill 2: HTML5 & CSS3 -->
+                <div class="portfolio-card p-6 rounded-xl">
+                    <div class="flex items-center mb-3">
+                        <i data-lucide="layout-grid" class="w-6 h-6 text-green-400 mr-3"></i>
+                        <span class="text-xl font-semibold">HTML5 & CSS3</span>
+                    </div>
+                    <div class="flex justify-between mb-1">
+                        <span class="text-sm font-medium text-slate-400">Proficiency</span>
+                        <span class="text-sm font-medium text-green-400" id="html-percent">95%</span>
+                    </div>
+                    <div class="w-full bg-slate-700 rounded-full h-2.5">
+                        <div class="skill-bar-fill h-2.5 rounded-full bg-green-500" style="width: 0%;"
+                            data-percent="95"></div>
+                    </div>
+                </div>
+
+                <!-- Skill 3: Java Programming -->
+                <div class="portfolio-card p-6 rounded-xl">
+                    <div class="flex items-center mb-3">
+                        <i data-lucide="bolt" class="w-6 h-6 text-cyan-400 mr-3"></i>
+                        <span class="text-xl font-semibold">Java Programming</span>
+                    </div>
+                    <div class="flex justify-between mb-1">
+                        <span class="text-sm font-medium text-slate-400">Proficiency</span>
+                        <span class="text-sm font-medium text-cyan-400" id="tailwind-percent">85%</span>
+                    </div>
+                    <div class="w-full bg-slate-700 rounded-full h-2.5">
+                        <div class="skill-bar-fill h-2.5 rounded-full bg-cyan-500" style="width: 0%;" data-percent="85">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill 4: React / Angular -->
+                <div class="portfolio-card p-6 rounded-xl">
+                    <div class="flex items-center mb-3">
+                        <i data-lucide="git-branch" class="w-6 h-6 text-orange-400 mr-3"></i>
+                        <span class="text-xl font-semibold">React / Angular</span>
+                    </div>
+                    <div class="flex justify-between mb-1">
+                        <span class="text-sm font-medium text-slate-400">Proficiency (Learning)</span>
+                        <span class="text-sm font-medium text-orange-400" id="react-percent">65%</span>
+                    </div>
+                    <div class="w-full bg-slate-700 rounded-full h-2.5">
+                        <div class="skill-bar-fill h-2.5 rounded-full bg-orange-500" style="width: 0%;"
+                            data-percent="65"></div>
+                    </div>
+                </div>
+
+                <!-- Skill 5: Database (SQL/NoSQL) -->
+                <div class="portfolio-card p-6 rounded-xl">
+                    <div class="flex items-center mb-3">
+                        <i data-lucide="database" class="w-6 h-6 text-pink-400 mr-3"></i>
+                        <span class="text-xl font-semibold">Database (SQL/NoSQL)</span>
+                    </div>
+                    <div class="flex justify-between mb-1">
+                        <span class="text-sm font-medium text-slate-400">Proficiency</span>
+                        <span class="text-sm font-medium text-pink-400" id="db-percent">75%</span>
+                    </div>
+                    <div class="w-full bg-slate-700 rounded-full h-2.5">
+                        <div class="skill-bar-fill h-2.5 rounded-full bg-pink-500" style="width: 0%;" data-percent="75">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill 6: Problem Solving / DSA -->
+                <div class="portfolio-card p-6 rounded-xl">
+                    <div class="flex items-center mb-3">
+                        <i data-lucide="brain" class="w-6 h-6 text-yellow-400 mr-3"></i>
+                        <span class="text-xl font-semibold">Problem Solving (DSA)</span>
+                    </div>
+                    <div class="flex justify-between mb-1">
+                        <span class="text-sm font-medium text-slate-400">Proficiency</span>
+                        <span class="text-sm font-medium text-yellow-400" id="dsa-percent">80%</span>
+                    </div>
+                    <div class="w-full bg-slate-700 rounded-full h-2.5">
+                        <div class="skill-bar-fill h-2.5 rounded-full bg-yellow-500" style="width: 0%;"
+                            data-percent="80"></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 5. Projects Section (Portfolio) -->
+        <section id="projects" class="py-20 md:py-24 border-t border-slate-800">
+            <h2 class="text-4xl font-bold mb-12 text-center">Featured Projects</h2>
+
+<div class="flex justify-center">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+        <!-- Project 1 -->
+        <div class="portfolio-card p-6 rounded-xl">
+            <div class="h-40 bg-slate-700 rounded-lg mb-4 flex items-center justify-center">
+                <img src="IMG-003.png" alt="Event Image" class="object-contain" />
+            </div>
+
+            <h3 class="text-xl font-semibold mb-2 text-center">Lexora AI</h3>
+            <p class="text-slate-400 mb-4 text-sm text-center">An AI Language Translator works using Google API</p>
+            <div class="flex flex-wrap gap-2 justify-center text-xs">
+                <span class="bg-blue-600/20 text-blue-400 px-3 py-1 rounded-full">AI/ML (Mock)</span>
+                <span class="bg-blue-600/20 text-blue-400 px-3 py-1 rounded-full">Tailwind CSS</span>
+                <span class="bg-blue-600/20 text-blue-400 px-3 py-1 rounded-full">JavaScript ES6</span>
+            </div>
+        </div>
+    </div>
+
+
+
+                <!-- Project 2 (Placeholder) -->
+                <!-- <div class="portfolio-card p-6 rounded-xl">
+                    <div class="h-40 bg-slate-700 rounded-lg mb-4 flex items-center justify-center">
+                        <i data-lucide="rocket" class="w-12 h-12 text-green-400"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">3D Physics Simulation</h3>
+                    <p class="text-slate-400 mb-4 text-sm">A foundational project demonstrating collision detection and
+                        basic gravity using a simple 3D rendering engine (concept).</p>
+                    <div class="flex flex-wrap gap-2 text-xs">
+                        <span class="bg-green-600/20 text-green-400 px-3 py-1 rounded-full">Game Dev</span>
+                        <span class="bg-green-600/20 text-green-400 px-3 py-1 rounded-full">C++/Python</span>
+                    </div>
+                </div> -->
+
+                <!-- Project 3 (Placeholder) -->
+                <!-- <div class="portfolio-card p-6 rounded-xl">
+                    <div class="h-40 bg-slate-700 rounded-lg mb-4 flex items-center justify-center">
+                        <i data-lucide="line-chart" class="w-12 h-12 text-orange-400"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Data Structures Visualizer</h3>
+                    <p class="text-slate-400 mb-4 text-sm">An interactive tool built to help visualize sorting
+                        algorithms and tree traversal for educational purposes.</p>
+                    <div class="flex flex-wrap gap-2 text-xs">
+                        <span class="bg-orange-600/20 text-orange-400 px-3 py-1 rounded-full">DSA</span>
+                        <span class="bg-orange-600/20 text-orange-400 px-3 py-1 rounded-full">JavaScript</span>
+                    </div>
+                </div> -->
+
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="https://github.com/abhinavsankar27-bot" target="_blank"
+                    class="inline-flex items-center px-6 py-3 border border-blue-600 text-blue-400 font-semibold rounded-lg hover:bg-blue-600/10 transition duration-300">
+                    See More on GitHub
+                    <i data-lucide="github" class="w-4 h-4 ml-2"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- 6. Contact Section (Sleek Two-Column Layout) -->
+        <section id="contact" class="py-20 md:py-24 border-t border-slate-800">
+            <h2 class="text-4xl font-bold mb-12 text-center">Let's Connect</h2>
+
+            <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+
+                <!-- Left Column: Contact Details & Socials -->
+                <div class="space-y-8">
+                    <p class="text-lg text-slate-300">
+                        I am currently available for **internship roles** and **freelance collaborations**. Send me a
+                        message, or use the details below for a direct connection!
+                    </p>
+
+                    <div class="space-y-4">
+                        <!-- Email -->
+                        <div class="flex items-center space-x-4">
+                            <i data-lucide="mail" class="w-6 h-6 text-blue-400 flex-shrink-0"></i>
+                            <div>
+                                <p class="text-sm text-slate-400">Email Address</p>
+                                <a href="mailto:abhinavsankar27@gmail.com"
+                                    class="text-lg font-medium hover:text-blue-300 transition">
+                                    abhinavsankar27@gmail.com
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Location -->
+                        <div class="flex items-center space-x-4">
+                            <i data-lucide="map-pin" class="w-6 h-6 text-green-400 flex-shrink-0"></i>
+                            <div>
+                                <p class="text-sm text-slate-400">Location</p>
+                                <p class="text-lg font-medium">Thrissur, Kerala, India</p>
+                            </div>
+                        </div>
+
+                        <!-- Phone (Mock) -->
+                        <div class="flex items-center space-x-4">
+                            <i data-lucide="phone" class="w-6 h-6 text-red-400 flex-shrink-0"></i>
+                            <div>
+                                <p class="text-sm text-slate-400">Phone (Mock)</p>
+                                <p class="text-lg font-medium">+91 6238505168</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="flex space-x-6 pt-4">
+                        <a href="https://linkedin.com/in/abhinavsankar" target="_blank"
+                            class="text-slate-400 hover:text-blue-400 transition duration-300" title="LinkedIn">
+                            <i data-lucide="linkedin" class="w-7 h-7"></i>
+                        </a>
+                        <a href="https://github.com/yourusername" target="_blank"
+                            class="text-slate-400 hover:text-green-400 transition duration-300" title="GitHub">
+                            <i data-lucide="github" class="w-7 h-7"></i>
+                        </a>
+                        <a href="https://twitter.com/yourhandle" target="_blank"
+                            class="text-slate-400 hover:text-cyan-400 transition duration-300" title="Twitter/X">
+                            <i data-lucide="twitter" class="w-7 h-7"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Contact Form -->
+                <div class="portfolio-card p-8 rounded-xl shadow-2xl">
+                    <h3 class="text-2xl font-semibold mb-6 text-white">Send a Message</h3>
+                    <!-- Mock Contact Form (Action removed for safety) -->
+                    <form
+                        onsubmit="event.preventDefault(); showMessage('Thank you! Your message has been sent (demo).', 'success');"
+                        class="space-y-5">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-slate-400 mb-1">Full Name</label>
+                            <input type="text" id="name" name="name" required
+                                class="w-full px-4 py-2 bg-slate-900 border border-slate-700 rounded-lg focus:ring-blue-500 focus:border-blue-500 text-white transition">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-slate-400 mb-1">Work Email</label>
+                            <input type="email" id="email" name="email" required
+                                class="w-full px-4 py-2 bg-slate-900 border border-slate-700 rounded-lg focus:ring-blue-500 focus:border-blue-500 text-white transition">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-slate-400 mb-1">Your
+                                Message</label>
+                            <textarea id="message" name="message" rows="4" required
+                                class="w-full px-4 py-2 bg-slate-900 border border-slate-700 rounded-lg focus:ring-blue-500 focus:border-blue-500 text-white transition"></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full px-4 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-500 transition duration-300 transform hover:scale-[1.01]">
+                            Send Inquiry
+                        </button>
+                    </form>
+                    <!-- Message Box -->
+                    <div id="message-box" class="mt-4 p-3 rounded-lg text-center hidden font-medium"></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 mt-16 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-slate-500">
+            <p>&copy; 2025 Abhinav Sankar. All rights reserved.</p>
+            <p class="text-sm mt-2">Designed with <i data-lucide="heart" class="w-3 h-3 inline text-red-500"></i>,
+                HTML5, ES6, and Tailwind CSS.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ES6 JavaScript for responsiveness and interactivity
+
+        // Global variables for message box
+        const msgBox = document.getElementById('message-box');
+
+        /**
+         * Toggles the visibility of the mobile navigation menu.
+         */
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        /**
+         * Hides the mobile menu when a navigation link is clicked (mobile-first UX).
+         */
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        /**
+         * Displays a temporary notification message (replacement for alert/confirm).
+         * @param {string} message - The text to display.
+         * @param {string} type - 'success' or 'error' to set color.
+         */
+        function showMessage(message, type) {
+            msgBox.textContent = message;
+            msgBox.classList.remove('hidden', 'bg-red-600/20', 'text-red-400', 'bg-green-600/20', 'text-green-400', 'bg-blue-600/20');
+
+            if (type === 'success') {
+                msgBox.classList.add('bg-green-600/20', 'text-green-400');
+            } else if (type === 'error') {
+                msgBox.classList.add('bg-red-600/20', 'text-red-400');
+            } else {
+                msgBox.classList.add('bg-blue-600/20', 'text-blue-400');
+            }
+
+            // Show and hide the message after 3 seconds
+            msgBox.classList.remove('hidden');
+            setTimeout(() => {
+                msgBox.classList.add('hidden');
+            }, 3000);
+        }
+
+        /**
+         * Animates the skill bars when the page loads.
+         */
+        window.addEventListener('load', () => {
+            lucide.createIcons();
+            const skillBars = document.querySelectorAll('.skill-bar-fill');
+            // Intersection Observer to trigger animation when skills section is visible
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        skillBars.forEach(bar => {
+                            const percent = bar.getAttribute('data-percent');
+                            // Use a slight delay to ensure the CSS transition is smooth
+                            setTimeout(() => {
+                                bar.style.width = percent + '%';
+                            }, 100);
+                        });
+                        observer.unobserve(entry.target); // Stop observing after animation
+                    }
+                });
+            }, { threshold: 0.5 }); // Trigger when 50% of the section is visible
+
+            const skillsSection = document.getElementById('skills');
+            if (skillsSection) {
+                observer.observe(skillsSection);
+            }
+        });
+
+    </script>
+</body>
+
+</html>
